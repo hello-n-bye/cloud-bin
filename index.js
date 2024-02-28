@@ -14,15 +14,15 @@ app.post('/raw', (req, res) => {
 
   if (codeContent.trim() !== "") {
     const fileName = generateRandomFileName();
-    const filePath = path.join(__dirname, 'public', 'raw', `${fileName}.html`);
+    const filePath = path.join(__dirname, 'public', 'raw', `${fileName}.txt`);
 
     fs.writeFile(filePath, codeContent, (err) => {
       if (err) {
         console.error(err);
         res.status(500).send('Internal Server Error');
       } else {
-        console.log(`File ${fileName}.html created successfully.`);
-        return res.send(`${fileName}.html`);
+        console.log(`File ${fileName}.txt created successfully.`);
+        return res.send(`${fileName}.txt`);
       }
     });
   } else {
